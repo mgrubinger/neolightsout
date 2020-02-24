@@ -1,6 +1,7 @@
 <script>
   export let showNextLevelDialog = false
   export let loadNextLevel
+  export let restartLevel
 
   import { moves, currentLevel } from './../stores'
 </script>
@@ -31,6 +32,10 @@
   .bottombar h2 {
     text-align: center;
   }
+
+  .restart-button {
+    margin-top: 0.3rem;
+  }
 </style>
 
 <div class="bottombar" data-next-level={showNextLevelDialog}>
@@ -45,6 +50,9 @@
     <div class="bottombar-element">
       <div class="val">{$currentLevel + 1}</div>
       <div class="label">Level</div>
+      <button class="primary-button tiny restart-button" on:click={() => restartLevel()}>
+        Restart
+      </button>
     </div>
   {/if}
 </div>

@@ -86,6 +86,11 @@
     showNextLevelDialog = false
     finishAnimationRunning = false
   }
+
+  let restartLevel = () => {
+    moves.reset()
+    items.loadLevel($currentLevel)
+  }
 </script>
 
 <style>
@@ -118,4 +123,4 @@
   {/each}
 </section>
 
-<Bottombar {showNextLevelDialog} {loadNextLevel} />
+<Bottombar {showNextLevelDialog} {loadNextLevel} {restartLevel} />

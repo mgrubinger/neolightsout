@@ -10,10 +10,10 @@
 
 <h1>neo:lights:out</h1>
 
-<p>This is a simple game.</p>
 <p>
-  <strong>Aim:</strong>
-  Turn out all the lights.
+  This is a simple game.
+  <strong>The aim is</strong>
+  to turn off all the lights.
 </p>
 <p>
   Tap a button. The neighboring buttons will light up too, or turn off – depending on what state

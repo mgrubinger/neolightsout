@@ -60,6 +60,11 @@ button.primary-button {
   color: var(--main);
 }
 
+button.primary-button.tiny {
+  font-size: 0.8rem;
+  padding: 0.5em 0.6em;
+}
+
 hr {
   border-style: dashed;
   border-color: #fff;
