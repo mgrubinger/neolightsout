@@ -13,9 +13,8 @@ body {
   color: #333;
   --main: #df4484;
   background-color: var(--main);
-  font-family: "IBM Plex Sans Condensed", -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'IBM Plex Sans Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #fff;
   box-sizing: border-box;
 }
@@ -47,13 +46,23 @@ a {
 button {
   -webkit-appearance: none;
   appearance: none;
+}
+
+button.primary-button {
   border: none;
   background: linear-gradient(145deg, #fffdfe, #f4c7d9);
   box-shadow: 0.3em 0.3em 1em #be3a70, -0.3em -0.3em 1em #ff4e98;
-  color: var(--main);
-  border-radius: 0.5em;
-  font-weight: 700;
-  font-size: 1.3rem;
   padding: 0.9em;
   text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border-radius: 0.5em;
+  color: var(--main);
+}
+
+hr {
+  border-style: dashed;
+  border-color: #fff;
+  border-bottom: 0;
+  border-top-width: 2px;
 }

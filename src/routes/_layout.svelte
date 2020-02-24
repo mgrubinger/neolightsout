@@ -24,16 +24,15 @@
   <link
     href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed:400,700&display=swap"
     rel="stylesheet" />
-  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- Global site tag (gtag.js) - Google Analytics
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159009442-1">
 
-  </script>
-  <script>
+  </script>  <script>
     window.dataLayer = window.dataLayer || []
     function gtag() {
       dataLayer.push(arguments)
     }
     gtag('js', new Date())
     gtag('config', 'UA-159009442-1')
-  </script>
+  </script> -->
 </svelte:head>
