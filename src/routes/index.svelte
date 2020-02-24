@@ -1,81 +1,90 @@
 <script>
-  import Knob from "./../components/Knob.svelte";
-  import levels from "./../levels";
-  import { beforeUpdate, tick } from 'svelte';
+  import { beforeUpdate, tick } from 'svelte'
 
-  let items = [];
-  let level = 0;
-  let moves = 0;
-  $: allDone = items.every((e) => e.active === false);
-  let finishAnimationRunning = false;
+  import { moves, items, currentLevel } from './../stores.js'
+  import Knob from './../components/Knob.svelte'
+  import Bottombar from './../components/Bottombar.svelte'
 
-	beforeUpdate(async () => {
-		console.log('the component is about to update');
-		await tick();
-    console.log('the component just updated');
-    if(allDone && finishAnimationRunning === false) finishAnimation();
-	});
+  $: allDone = $items.every(e => e.active === false)
+  let finishAnimationRunning = false
+  let showNextLevelDialog = false
 
-  for (let index = 0; index < 25; index++) {
-    items.push({ active: false });
-  }
+  if ($moves == 0) items.loadLevel($currentLevel)
 
-  levels[level].map(e => {
-    items[e].active = true;
-  });
+  /**
+   * after update (after tick()) -> trigger finish animation
+   */
+  beforeUpdate(async () => {
+    await tick()
+    if (allDone && finishAnimationRunning === false) finishAnimation()
+  })
 
+  /**
+   * Handle Click on Knob
+   */
   let handleKnobClick = (item, index) => {
-    if(allDone) return;
-    moves++;
-    items[index].active = !items[index].active;
+    if (allDone) return
+    moves.increment()
+    items.toggleActive(index)
 
-    let otherIndezes = [];
-    let column = index % 5;
-    let row = Math.floor(index / 5);
+    let otherIndezes = []
+    let column = index % 5
+    let row = Math.floor(index / 5)
 
     if (column > 0 && column < 4) {
-      otherIndezes.push(index - 1);
-      otherIndezes.push(index + 1);
+      otherIndezes.push(index - 1)
+      otherIndezes.push(index + 1)
     } else if (column == 0) {
-      otherIndezes.push(index + 1);
+      otherIndezes.push(index + 1)
     } else if (column == 4) {
-      otherIndezes.push(index - 1);
+      otherIndezes.push(index - 1)
     }
 
     if (row > 0 && row < 4) {
-      otherIndezes.push(index - 5);
-      otherIndezes.push(index + 5);
+      otherIndezes.push(index - 5)
+      otherIndezes.push(index + 5)
     } else if (row == 0) {
-      otherIndezes.push(index + 5);
+      otherIndezes.push(index + 5)
     } else if (row == 4) {
-      otherIndezes.push(index - 5);
+      otherIndezes.push(index - 5)
     }
 
     // toggle active state
     otherIndezes.map(i => {
-      if (items[i]) items[i].active = !items[i].active;
-    });
+      items.toggleActive(i)
+    })
+  }
 
-    // update array hack
-    items = items;
-
-  };
-
-  
+  /**
+   * Finish Animation
+   */
   let finishAnimation = () => {
-    finishAnimationRunning = true;
+    finishAnimationRunning = true
     for (let index = 0; index < 5; index++) {
       window.setTimeout(() => {
         for (let index2 = 0; index2 < 5; index2++) {
-          items[index * 5 + index2].active = true;
+          items.setActive(index * 5 + index2, true)
         }
-      }, index * 80 + 50);
+      }, index * 80 + 50)
       window.setTimeout(() => {
         for (let index2 = 0; index2 < 5; index2++) {
-          items[index * 5 + index2].active = false;
+          items.setActive(index * 5 + index2, false)
         }
-      }, index * 80 + 200);
+      }, index * 80 + 200)
     }
+
+    showNextLevelDialog = true
+  }
+
+  /**
+   * Load Next Level
+   */
+  let loadNextLevel = () => {
+    moves.reset()
+    currentLevel.increment()
+    items.loadLevel($currentLevel)
+    showNextLevelDialog = false
+    finishAnimationRunning = false
   }
 </script>
 
@@ -99,45 +108,14 @@
       --gap: 10px;
     }
   }
-
-  .topbar {
-      display: flex;
-      justify-content: space-evenly;
-      margin-top: 1rem;
-  }
-
-  .topbar-element {
-      text-align: center;
-  }
-  .topbar-element .val {
-      font-size: 4rem;
-      font-weight: 700;
-      line-height: 1em;
-  }
-  .topbar-element .label {
-      font-size: 1rem;
-      text-transform: uppercase;
-  }
 </style>
 
-
 <section id="grid">
-  {#each items as item, index}
-    <Knob
-      bind:active={item.active}
-      on:click={() => handleKnobClick(item, index)}>
+  {#each $items as item, index}
+    <Knob active={item.active} on:click={() => handleKnobClick(item, index)}>
       <!-- {index} -->
     </Knob>
   {/each}
 </section>
 
-<div class="topbar">
-  <div class="topbar-element">
-    <div class="val">{moves}</div>
-    <div class="label">Moves</div>
-  </div>
-  <div class="topbar-element">
-    <div class="val">{level+1}</div>
-    <div class="label">Level</div>
-  </div>
-</div>
+<Bottombar {showNextLevelDialog} {loadNextLevel} />
