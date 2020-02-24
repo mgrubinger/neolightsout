@@ -7,6 +7,8 @@
     font-weight: 700;
     padding: 1rem;
     padding-top: 0;
+    position: sticky;
+    top: 0;
   }
 
   ul {
@@ -22,7 +24,7 @@
 
   a {
     text-decoration: none;
-    padding: 0.5rem;
+    padding: 0.5rem 0.3rem;
     display: block;
     position: relative;
     font-size: 1.5rem;
@@ -37,7 +39,7 @@
     height: 2px;
     background-color: #fff;
     display: block;
-    bottom: -1px;
+    bottom: 0px;
     left: 50%;
     transform: translateX(-50%);
   }

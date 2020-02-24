@@ -1,3 +1,7 @@
+<script>
+  import { currentLevel } from './../stores.js'
+</script>
+
 <style>
   .cross-image {
     width: 100px;
@@ -30,12 +34,23 @@
 
 </p>
 
+<p>
+  Tap here to start from level 1 again:
+  <button
+    class="primary-button tiny"
+    on:click={() => {
+      currentLevel.reset()
+    }}>
+    Reset
+  </button>
+</p>
+
 <hr />
 <p>
   A project by
   <a href="https://www.grooovinger.com" rel="noreferrer noopener">grooovinger</a>
-</p>
-<p>
+  |
   <a href="imprint">Imprint</a>
+  |
   <a href="privacy-statement">Privacy Statement</a>
 </p>

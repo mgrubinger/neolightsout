@@ -32,27 +32,24 @@
   .bottombar h2 {
     text-align: center;
   }
-
-  .restart-button {
-    margin-top: 0.3rem;
-  }
 </style>
 
 <div class="bottombar" data-next-level={showNextLevelDialog}>
   {#if showNextLevelDialog}
-    <h2>You finished Level {$currentLevel + 1} in {$moves} moves!</h2>
+    <h2>
+      You finished Level {$currentLevel + 1}
+      <br />
+      in {$moves} moves!
+    </h2>
     <button class="primary-button" on:click={() => loadNextLevel()}>Next Level</button>
   {:else}
-    <div class="bottombar-element">
+    <div class="bottombar-element stats">
       <div class="val">{$moves}</div>
       <div class="label">Moves</div>
     </div>
-    <div class="bottombar-element">
+    <div class="bottombar-element stats">
       <div class="val">{$currentLevel + 1}</div>
       <div class="label">Level</div>
-      <button class="primary-button tiny restart-button" on:click={() => restartLevel()}>
-        Restart
-      </button>
     </div>
   {/if}
 </div>

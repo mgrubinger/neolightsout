@@ -106,6 +106,7 @@
     grid-row-gap: var(--gap);
     width: 100%;
     margin: 0 auto;
+    position: relative;
   }
 
   @media screen and (max-width: 600px) {
@@ -113,13 +114,33 @@
       --gap: 10px;
     }
   }
+
+  #grid .restart-button {
+    margin-top: 0.3rem;
+    font-size: 1rem;
+    position: absolute;
+    top: -55px;
+    left: 2px;
+    width: 32px;
+    height: 32px;
+    padding: 0.5em 0.6em;
+    line-height: 0.9em;
+    text-align: center;
+  }
+  .restart-button[disabled] {
+    opacity: 0.5;
+  }
 </style>
 
 <section id="grid">
+  <button
+    class="primary-button tiny restart-button"
+    disabled={$moves == 0}
+    on:click={() => restartLevel()}>
+    ↺
+  </button>
   {#each $items as item, index}
-    <Knob active={item.active} on:click={() => handleKnobClick(item, index)}>
-      <!-- {index} -->
-    </Knob>
+    <Knob active={item.active} on:click={() => handleKnobClick(item, index)}>{index}</Knob>
   {/each}
 </section>
 
