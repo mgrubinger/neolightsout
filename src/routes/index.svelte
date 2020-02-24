@@ -140,7 +140,9 @@
     ↺
   </button>
   {#each $items as item, index}
-    <Knob active={item.active} on:click={() => handleKnobClick(item, index)}>{index}</Knob>
+    <Knob active={item.active} on:click={() => handleKnobClick(item, index)}>
+    <!-- {index} -->
+    </Knob>
   {/each}
 </section>
 
