@@ -9,7 +9,7 @@
     position: relative;
     margin: 0 auto;
     box-sizing: border-box;
-    max-width: 800px;
+    max-width: 600px;
     padding: 0 1rem;
   }
 </style>

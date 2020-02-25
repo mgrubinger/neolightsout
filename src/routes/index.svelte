@@ -20,10 +20,12 @@
   })
 
   /**
-   * Handle Click on Knob
+   * Handle Click/Touchstart on Knob
    */
-  let handleKnobClick = (item, index) => {
-    if (allDone) return
+  let handleKnobClick = (item, index, event) => {
+    if (allDone) return;
+    event.preventDefault();
+    event.stopPropagation();
     moves.increment()
     items.toggleActive(index)
 
@@ -107,6 +109,7 @@
     width: 100%;
     margin: 0 auto;
     position: relative;
+    max-width: 400px;
   }
 
   @media screen and (max-width: 600px) {
@@ -119,11 +122,11 @@
     margin-top: 0.3rem;
     font-size: 1rem;
     position: absolute;
-    top: -55px;
-    left: 2px;
+    bottom: -55px;
+    right: 2px;
     width: 32px;
     height: 32px;
-    padding: 0.5em 0.6em;
+    padding: 0;
     line-height: 0.9em;
     text-align: center;
   }
@@ -133,17 +136,17 @@
 </style>
 
 <section id="grid">
+  {#each $items as item, index}
+    <Knob active={item.active} on:click={(e) => handleKnobClick(item, index, e)} on:touchstart={(e) => handleKnobClick(item, index, e) }>
+    <!-- {index} -->
+    </Knob>
+  {/each}
   <button
     class="primary-button tiny restart-button"
     disabled={$moves == 0}
     on:click={() => restartLevel()}>
     ↺
   </button>
-  {#each $items as item, index}
-    <Knob active={item.active} on:click={() => handleKnobClick(item, index)}>
-    <!-- {index} -->
-    </Knob>
-  {/each}
 </section>
 
-<Bottombar {showNextLevelDialog} {loadNextLevel} {restartLevel} />
+<Bottombar {showNextLevelDialog} {loadNextLevel} />

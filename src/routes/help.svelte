@@ -34,6 +34,7 @@
 
 </p>
 
+{#if $currentLevel > 0}
 <p>
   Tap here to start from level 1 again:
   <button
@@ -44,6 +45,7 @@
     Reset
   </button>
 </p>
+{/if}
 
 <hr />
 <p>

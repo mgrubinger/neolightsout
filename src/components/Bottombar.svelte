@@ -1,7 +1,6 @@
 <script>
-  export let showNextLevelDialog = false
-  export let loadNextLevel
-  export let restartLevel
+  export let showNextLevelDialog = false;
+  export let loadNextLevel;
 
   import { moves, currentLevel } from './../stores'
 </script>
@@ -44,12 +43,12 @@
     <button class="primary-button" on:click={() => loadNextLevel()}>Next Level</button>
   {:else}
     <div class="bottombar-element stats">
-      <div class="val">{$moves}</div>
-      <div class="label">Moves</div>
-    </div>
-    <div class="bottombar-element stats">
       <div class="val">{$currentLevel + 1}</div>
       <div class="label">Level</div>
+    </div>
+    <div class="bottombar-element stats">
+      <div class="val">{$moves}</div>
+      <div class="label">Moves</div>
     </div>
   {/if}
 </div>
