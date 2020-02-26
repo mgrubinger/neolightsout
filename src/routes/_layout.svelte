@@ -1,7 +1,7 @@
 <script>
-  import Nav from '../components/Nav.svelte'
+  import Nav from '../components/Nav.svelte';
 
-  export let segment
+  export let segment;
 </script>
 
 <style>
@@ -24,15 +24,23 @@
   <link
     href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed:400,700&display=swap"
     rel="stylesheet" />
-  <!-- Global site tag (gtag.js) - Google Analytics
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159009442-1">
 
-  </script>  <script>
-    window.dataLayer = window.dataLayer || []
-    function gtag() {
-      dataLayer.push(arguments)
-    }
-    gtag('js', new Date())
-    gtag('config', 'UA-159009442-1')
-  </script> -->
+  <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
+  <script>
+    (function(f, a, t, h, o, m) {
+      a[h] =
+        a[h] ||
+        function() {
+          (a[h].q = a[h].q || []).push(arguments);
+        };
+      (o = f.createElement('script')), (m = f.getElementsByTagName('script')[0]);
+      o.async = 1;
+      o.src = t;
+      o.id = 'fathom-script';
+      m.parentNode.insertBefore(o, m);
+    })(document, window, '//139.59.138.194/tracker.js', 'fathom');
+    fathom('set', 'siteId', 'LDNPN');
+    fathom('trackPageview');
+  </script>
+  <!-- / Fathom -->
 </svelte:head>
