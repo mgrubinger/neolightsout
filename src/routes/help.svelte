@@ -53,7 +53,7 @@
   A project by
   <a href="https://www.grooovinger.com" rel="noreferrer noopener">grooovinger</a>
   |
-  <a href="imprint">Imprint</a>
+  <a href="imprint" rel=prefetch>Imprint</a>
   |
-  <a href="privacy-statement">Privacy Statement</a>
+  <a href="privacy-statement" rel=prefetch>Privacy Statement</a>
 </p>
