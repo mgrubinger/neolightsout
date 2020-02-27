@@ -1,6 +1,8 @@
 <h1>Privacy Statement</h1>
-<p>We are not collecting any data. No Cookies. No Tracking. No Analytics.</p>
+<p>We are not storing any cookies, therefore you don't have to hit that annoying "I understand" button.</p>
+<p>We do however track visits to this website using a privacy aware analytics software called Fathom Analytics. This software runs on our own servers. So no tracking data is sent to third party vendors.</p>
 <p>
-  The only thing we're storing is your progress (current level) in something called Local Storage.
+  To save your current progress in the game (the current level) we store a tiny bit of information in something called Local Storage.<br/>
   By deleting your browsers data you can get rid of it.
 </p>
+<p>If you have any questions, please do not hesitate to contact me: <a href="mailto:hello@mgrubinger.at">hello@mgrubinger.at</a></p>

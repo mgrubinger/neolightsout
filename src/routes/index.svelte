@@ -22,7 +22,7 @@
   /**
    * Handle Click/Touchstart on Knob
    */
-  let handleKnobClick = (item, index, event) => {
+  let handleKnobClick = (item, index) => {
     if (allDone) return;
     event.preventDefault();
     event.stopPropagation();
@@ -137,13 +137,17 @@
 
 <section id="grid">
   {#each $items as item, index}
-    <Knob active={item.active} on:click={(e) => handleKnobClick(item, index, e)} on:touchstart={(e) => handleKnobClick(item, index, e) }>
+    <Knob 
+      active={item.active} 
+      on:click={(e) => handleKnobClick(item, index)} 
+      on:touchstart={(e) => handleKnobClick(item, index) }
+      >
     <!-- {index} -->
     </Knob>
   {/each}
   <button
     class="primary-button tiny restart-button"
-    disabled={$moves == 0}
+    disabled={$moves == 0 || showNextLevelDialog}
     on:click={() => restartLevel()}>
     ↺
   </button>

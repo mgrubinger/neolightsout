@@ -45,8 +45,6 @@
   }
 
   a:hover::after {
-    height: 1px;
-    opacity: 0.5;
   }
 </style>
 
