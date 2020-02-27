@@ -1,3 +1,11 @@
+<script>
+if(fathom) fathom('trackPageview');
+</script>
+
+<svelte:head>
+  <title>Imprint | neo:lights:out</title>
+</svelte:head>
+
 <h1>Imprint</h1>
 <p>
   Project by:

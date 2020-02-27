@@ -135,6 +135,10 @@
   }
 </style>
 
+<svelte:head>
+  <title>Play | neo:lights:out</title>
+</svelte:head>
+
 <section id="grid">
   {#each $items as item, index}
     <Knob 
@@ -154,3 +158,5 @@
 </section>
 
 <Bottombar {showNextLevelDialog} {loadNextLevel} />
+
+

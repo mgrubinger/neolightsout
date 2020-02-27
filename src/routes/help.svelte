@@ -1,5 +1,6 @@
 <script>
   import { currentLevel } from './../stores.js'
+  if(fathom) fathom('trackPageview');
 </script>
 
 <style>
@@ -9,7 +10,7 @@
 </style>
 
 <svelte:head>
-  <title>About neo:lights:out</title>
+  <title>Help | neo:lights:out</title>
 </svelte:head>
 
 <h1>neo:lights:out</h1>
