@@ -44,10 +44,12 @@
   <a href="https://en.wikipedia.org/wiki/Lights_Out_(game)" rel="noreferrer noopener">
     more detailed description.
   </a>
-
 </p>
 
+<p>If you like this game, please let others know too! <a href="https://twitter.com/intent/tweet/?text=check+out+this+fun+game!&url=https%3A%2F%2Fneolightsout.grooovinger.com" target="_blank" rel="noopener noreferrer">Share on Twitter</a></p>
+
 {#if $currentLevel > 0}
+  <hr/>
   <p>
     Tap here to start from level 1 again:
     <button
@@ -75,7 +77,7 @@
 </p>
 <p class="footer">
   Built with
-  <a href="https://svelte.dev/" rel="noopener noreferrer">Svelte</a> and
-  <a href="https://sapper.svelte.dev/" rel="noopener noreferrer">Sapper.</a> Proudly hosted on
-  <a href="https://netlify.com" rel="noopener noreferrer">Netlify.</a>
+  <a href="https://svelte.dev/" rel="noopener noreferrer" target="_blank" >Svelte</a> and
+  <a href="https://sapper.svelte.dev/" rel="noopener noreferrer" target="_blank" >Sapper.</a> Proudly hosted on
+  <a href="https://netlify.com" rel="noopener noreferrer" target="_blank" >Netlify.</a>
 </p>

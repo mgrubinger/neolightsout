@@ -82,6 +82,8 @@
     }
 
     showNextLevelDialog = true
+
+
   }
 
   /**
@@ -155,12 +157,14 @@
     <!-- {index} -->
     </Knob>
   {/each}
+  {#if !showNextLevelDialog}
   <button
     class="primary-button tiny restart-button"
     disabled={$moves == 0 || showNextLevelDialog}
     on:click={() => restartLevel()}>
     ↺
   </button>
+  {/if}
 </section>
 
 <Bottombar {showNextLevelDialog} {loadNextLevel} />

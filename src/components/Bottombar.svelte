@@ -35,12 +35,20 @@
 
 <div class="bottombar" data-next-level={showNextLevelDialog}>
   {#if showNextLevelDialog}
-    <h2>
-      You finished Level {$currentLevel + 1}
-      <br />
-      in {$moves} moves!
-    </h2>
-    <button class="primary-button" on:click={() => loadNextLevel()}>Next Level</button>
+    {#if $currentLevel+1 >= 50}
+      <h2>
+        🎉🎉🎉 Congratulations! 🎉🎉🎉
+      </h2>
+      <p style="text-align: center">You made it! You finished all the levels! I hope you enjoyed the game. If you want to play again, hit the reset button in <a href="help">Help</a></p>
+      <p>Let others know how you liked it too! <a href="https://twitter.com/intent/tweet/?text=check+out+this+fun+game!&url=https%3A%2F%2Fneolightsout.grooovinger.com" target="_blank" rel="noopener noreferrer">Share on Twitter</a></p>
+    {:else}
+      <h2>
+        You finished Level {$currentLevel + 1}
+        <br />
+        in {$moves} moves!
+      </h2>
+      <button class="primary-button" on:click={() => loadNextLevel()}>Next Level</button>
+    {/if}
   {:else}
     <div class="bottombar-element stats">
       <div class="val">{$currentLevel + 1}</div>
