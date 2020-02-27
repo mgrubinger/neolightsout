@@ -9,6 +9,14 @@
     padding-top: 0;
     position: sticky;
     top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    margin-top: 0.3em;
   }
 
   ul {
@@ -49,6 +57,7 @@
 </style>
 
 <nav>
+  <div class="title">neo:lights:out</div>
   <ul>
     <li>
       <a aria-current={segment === undefined ? 'page' : undefined} href=".">play</a>

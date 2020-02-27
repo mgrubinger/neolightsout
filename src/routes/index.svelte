@@ -29,6 +29,12 @@
     moves.increment()
     items.toggleActive(index)
 
+    //// debug only
+    // if(simple) {
+    //   console.log($items.map((e, index) => e.active ? index : false ).filter(e => e != false));
+    //   return;
+    // }
+
     let otherIndezes = []
     let column = index % 5
     let row = Math.floor(index / 5)
@@ -141,9 +147,9 @@
 
 <section id="grid">
   {#each $items as item, index}
-    <Knob 
-      active={item.active} 
-      on:click={(e) => handleKnobClick(item, index)} 
+    <Knob
+      active={item.active}
+      on:click={(e) => handleKnobClick(item, index)}
       on:touchstart={(e) => handleKnobClick(item, index) }
       >
     <!-- {index} -->

@@ -4,7 +4,7 @@
 export let active;
 </script>
 
-<button class="knob" data-active={active} on:click|preventDefault on:touchstart|preventDefault><slot></slot></button>
+<button class="knob" data-active={active} aria-label="{active ? 'light' : 'dark'} button" on:click|preventDefault on:touchstart|preventDefault><slot></slot></button>
 
 <style>
 
