@@ -1,6 +1,6 @@
 {
-  "background_color": "#df4484",
-  "theme_color": "#df4484",
+  "background_color": "#d93a7c",
+  "theme_color": "#d93a7c",
   "name": "neo:lights:out",
   "short_name": "neo:lights:out",
   "display": "standalone",
