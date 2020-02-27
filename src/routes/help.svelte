@@ -24,12 +24,12 @@
   they were in before.
 </p>
 <p>
-  <img class="cross-image" src="./cross.png" alt="" />
+  <img class="cross-image" src="./lightsout-white-256x256.png" alt="5 light buttons arranged in a cross" />
 </p>
 <p>
-  (Here's a
+  This app is a clone of the original Lights Out handheld game that was manufactured by Tiger Electronics. Here's a
   <a href="https://en.wikipedia.org/wiki/Lights_Out_(game)" rel="noreferrer noopener">
-    more detailed description)
+    more detailed description.
   </a>
 
 </p>

@@ -7,12 +7,12 @@
   "start_url": "/",
   "icons": [
     {
-      "src": "cross-192x192.png",
+      "src": "lightsout-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "cross-512x512.png",
+      "src": "lightsout-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
