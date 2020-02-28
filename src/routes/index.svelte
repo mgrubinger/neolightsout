@@ -63,26 +63,32 @@
     })
   }
 
+  let finishAnimationOneRow = (row) => {
+    requestAnimationFrame(() => {
+      items.reset();
+      for (let index2 = 0; index2 < 5; index2++) {
+        items.setActive(row * 5 + index2, true)
+      }
+      if(row == 5) {
+        return;
+      }
+      window.setTimeout(() => {
+        row = row + 1;
+        finishAnimationOneRow(row);
+      }, 80)
+    });
+  }
+
   /**
    * Finish Animation
    */
   let finishAnimation = () => {
     finishAnimationRunning = true
-    for (let index = 0; index < 5; index++) {
-      window.setTimeout(() => {
-        for (let index2 = 0; index2 < 5; index2++) {
-          items.setActive(index * 5 + index2, true)
-        }
-      }, index * 80 + 50)
-      window.setTimeout(() => {
-        for (let index2 = 0; index2 < 5; index2++) {
-          items.setActive(index * 5 + index2, false)
-        }
-      }, index * 80 + 200)
-    }
+
+    let row = 0;
+    finishAnimationOneRow(0);
 
     showNextLevelDialog = true
-
 
   }
 
