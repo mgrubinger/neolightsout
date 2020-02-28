@@ -17,6 +17,8 @@ export let active;
     background: #df4484;
     box-shadow:  0.3em 0.3em 1em #be3a70,
                 -0.3em -0.3em 1em #ff4e98;
+    transform: translate3d(0,0,0);
+    transition: all 50ms ease-out;
 }
 .knob:focus {
     outline: none;
@@ -31,8 +33,9 @@ export let active;
 }
 
 .knob[data-active=true] {
-    background: linear-gradient(145deg, #fffdfe, #f4c7d9);
-    box-shadow:  0.3em 0.3em 1em #be3a70, 
+  transform: translate3d(0,0,0) scale(1.05);
+  background: linear-gradient(145deg, #fffdfe, #f4c7d9);
+  box-shadow:  0.3em 0.3em 1em #be3a70, 
                 -0.3em -0.3em 1em #ff4e98;
 }
 
