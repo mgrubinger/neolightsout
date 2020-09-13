@@ -1,6 +1,3 @@
-<script>
-if(fathom) fathom('trackPageview');
-</script>
 
 <svelte:head>
   <title>Imprint | neo:lights:out</title>

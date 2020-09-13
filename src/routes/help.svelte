@@ -1,6 +1,5 @@
 <script>
   import { currentLevel } from './../stores.js';
-  if (fathom) fathom('trackPageview');
 </script>
 
 <style>

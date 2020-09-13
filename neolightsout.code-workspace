@@ -19,9 +19,7 @@
       "titleBar.inactiveForeground": "#15202b99",
       "statusBar.background": "#65f76e",
       "statusBarItem.hoverBackground": "#34f440",
-      "statusBar.foreground": "#15202b",
-      "statusBar.border": "#65f76e",
-      "titleBar.border": "#65f76e"
+      "statusBar.foreground": "#15202b"
     },
     "peacock.color": "#65f76e",
     "editor.tabSize": 2,
