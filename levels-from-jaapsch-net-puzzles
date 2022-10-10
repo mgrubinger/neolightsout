@@ -1,5 +1,6 @@
 
 // from: https://www.jaapsch.net/puzzles/javascript/lightjcl.htm
+
     // Javascript written by Jaap Scherphuis. (jaapsch a t yahoo d o t com)
 
 var imagedir="images/lights/";
@@ -330,4 +331,89 @@ function hintson(){
     //Board remains unchanged.
     //If no solution found, then return false, else return true
 
-    //backup board, and set bo…
+    //backup board, and set board to accept hints
+    var backup = new Array();
+    for(var i=0;i<=5;i++) backup[i]=posit[i];
+    for(var i=1;i<=5;i++) hnt[i]=0;
+
+    //solve board up to last row
+    solvbot(1);
+
+    //save bottom row vector
+    var aim = posit[5];
+    posit[5]=0;
+
+    //Build up matrix of bottom rows for each possible top light
+    var bot = new Array (34,20,56,0, 0 );
+    var inv = new Array (6, 14,12,54,42)
+
+    //Note rows below l are 0, i.e. push patterns that have no effect.
+    //Now try to make aim from non-zero rows
+    m=0; //current row
+    for(var k=1;k<=5;k++){   //current column
+        var c=qbit[k];
+        if(bot[m]&c){
+            if(aim&c){
+                aim^=bot[m];
+                //push top buttons as indicated in inv matrix
+                var d=inv[m];
+                hnt[1]^=d;
+                posit[1]=(posit[1]^d^(d+d)^(d>>1))&msk;
+                posit[2]^=d;
+            }
+            m++; //move to next row
+        }
+    }
+    //Error if aim has not been attained
+    if(aim&msk){
+        //restore board
+        for(i=0;i<=5;i++) posit[i]=backup[i];
+        return(false);
+    }
+    //Expand solution
+    solvbot(1);
+
+    //Should now check whether can minimise solution by adding a zero row
+    aim=counthnt();
+    //save current position
+    var backhnt=new Array;
+    for(var i=1;i<=5;i++) backhnt[i]=hnt[i];
+
+    //get complete push pattern generators
+    var invar= new Array();
+    invar[0]=new Array(54,0,54,0,54);
+    invar[1]=new Array(42,42,0,42,42);
+    invar[2]=new Array(28,42,54,42,28);
+
+    //run through all non-zero combinations of the push patterns.
+    for(c=0;c<=2;c++){
+        //check combination c; each bit indicates one of the final rows to add
+        for(var i=1;i<=5;i++) hnt[i]=backhnt[i]^invar[c][i-1];
+        //check if found better solution
+        j=counthnt();
+        //alert("aim="+aim+" new="+j+"\nold="+backhnt+"\nhnt="+hnt);
+        if(j<aim){
+            for(var i=1;i<=5;i++) backhnt[i]=hnt[i];
+            aim=j;
+        }
+    }
+    //restore hnt
+    for(var i=1;i<=5;i++) hnt[i]=backhnt[i];
+
+    //restore board
+    for(i=1;i<=5;i++) posit[i]=backup[i];
+    return(true);
+}
+
+
+//used to quickly count number of bits set.
+var qcnt=new Array(0,1,1,2,1,2,2,3,1,2,2,3,2,3,3,4,
+                     1,2,2,3,2,3,3,4,2,3,3,4,3,4,4,5);
+function counthnt(){
+    //count number of buttons pressed, i.e. number of bits set in hnt.
+    var c=0;
+    for(var i=1;i<=5;i++){
+        c+=qcnt[hnt[i]>>1]+qcnt[hnt[i]>>6];
+    }
+    return(c);
+}
