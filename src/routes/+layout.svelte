@@ -1,6 +1,7 @@
 <script>
 	import '@fontsource/ibm-plex-sans-condensed';
 	import Nav from '$components/Nav.svelte';
+  export const prerender = true;
 </script>
 
 <Nav />

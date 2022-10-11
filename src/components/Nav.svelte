@@ -1,17 +1,15 @@
 <script>
 	import { page } from '$app/stores';
-
-	let routeId = $page.routeId
 </script>
 
 <nav>
 	<div class="title">neo:lights:out</div>
 	<ul>
 		<li>
-			<a aria-current={routeId === "" ? 'page' : undefined} href=".">play</a>
+			<a aria-current={$page.url.pathname === '/' ? 'page' : undefined} href=".">play</a>
 		</li>
 		<li>
-			<a rel="prefetch" aria-current={routeId === 'help' ? 'page' : undefined} href="help">help</a>
+			<a rel="prefetch" aria-current={$page.url.pathname === '/help' ? 'page' : undefined} href="help">help</a>
 		</li>
 	</ul>
 </nav>
