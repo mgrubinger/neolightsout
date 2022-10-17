@@ -6,10 +6,13 @@
 	<div class="title">neo:lights:out</div>
 	<ul>
 		<li>
-			<a aria-current={$page.url.pathname === '/' ? 'page' : undefined} href=".">play</a>
+			<a aria-current={$page.url.pathname === '/' ? 'page' : undefined} href="/">play</a>
 		</li>
+    <li>
+      <a aria-current={$page.url.pathname === '/levels' ? 'page' : undefined} href="/levels">levels</a>
+    </li>
 		<li>
-			<a rel="prefetch" aria-current={$page.url.pathname === '/help' ? 'page' : undefined} href="help">help</a>
+			<a rel="prefetch" aria-current={$page.url.pathname === '/help' ? 'page' : undefined} href="/help">help</a>
 		</li>
 	</ul>
 </nav>
@@ -24,6 +27,8 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+    background-color: var(--main);
+    z-index: 1;
 	}
 
 	.title {

@@ -24,13 +24,13 @@
 		margin: 0;
 		line-height: 1.5;
 		color: #333;
-		--main: #df4484;
+		--main: hsl(335, 68%, 54%);
 		background-color: var(--main);
-		background-color: hsl(335, 68%, 54%);
 		font-family: 'IBM Plex Sans Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
 			Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 		color: #fff;
 		box-sizing: border-box;
+    font-display: swap;
 	}
 
 	* {
@@ -92,6 +92,7 @@
 		box-sizing: border-box;
 		max-width: 600px;
 		padding: 0 1rem;
+    margin-bottom: 3rem;
 	}
 
 	@media screen and (min-height: 750px) {

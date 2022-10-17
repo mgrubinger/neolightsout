@@ -40,21 +40,6 @@
 	>
 </p>
 
-{#if $currentLevel > 0}
-	<hr />
-	<p>
-		Tap here to start from level 1 again:
-		<button
-			class="primary-button tiny"
-			on:click={() => {
-				currentLevel.reset();
-			}}
-		>
-			Reset
-		</button>
-	</p>
-{/if}
-
 <hr />
 
 <p class="footer flex">

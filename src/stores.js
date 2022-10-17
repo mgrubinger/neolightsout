@@ -1,4 +1,5 @@
-import { writable } from 'svelte/store';
+import { browser } from '$app/environment';
+import { get, writable } from 'svelte/store';
 import LevelConfig from './levels';
 
 function createMoves() {
@@ -7,40 +8,49 @@ function createMoves() {
 	return {
 		subscribe,
 		increment: () => update((previousState) => previousState + 1),
-		decrement: () => update((previousState) => previousState + 1),
 		reset: () => {
 			set(0);
 		}
 	};
 }
 
-function createCurrentLevel() {
-	let currentLevel = 0;
-	if (typeof window !== 'undefined' && localStorage.level != null)
-		currentLevel = parseInt(localStorage.level);
-	const { subscribe, set, update } = writable(currentLevel);
+function createProgress() {
+	let progressSoFar = [];
+
+  // migration from .level to .progress
+	if (typeof window !== 'undefined' && localStorage.level != null) {
+		// TODO: migrate to progess array
+		let currentLevel = parseInt(localStorage.level);
+		for (let index = 0; index < currentLevel; index++) {
+			progressSoFar.push(index);
+		}
+	}
+
+  if(typeof window !== 'undefined' && localStorage.progress != null) {
+    try {
+      progressSoFar = JSON.parse(localStorage.progress);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+	const progressStore = writable(progressSoFar);
+
+  progressStore.subscribe((value)=> {
+    if(browser) localStorage.progress = JSON.stringify(value);
+  });
 
 	return {
-		subscribe,
-		increment: () => {
-			update((previousState) => {
-				if (typeof window !== 'undefined') localStorage.level = previousState + 1;
-				return previousState + 1;
-			});
-		},
-		decrement: () => {
-			update((previousState) => {
-				if (typeof window !== 'undefined') localStorage.level = previousState + 1;
-				return previousState + 1;
-			});
-		},
-		set: (level) => {
-			set(level);
-			if (typeof window !== 'undefined') localStorage.level = level;
-		},
+    ...progressStore,
+    add: (level) => {
+      progressStore.update((value)=> {
+         let newV = [...value, level];
+         newV = [...new Set(newV)];
+         return newV;
+      })
+    },
 		reset: () => {
-			set(0);
-			if (typeof window !== 'undefined') localStorage.level = 0;
+			progressStore.set([]);
 		}
 	};
 }
@@ -88,6 +98,33 @@ function createItems() {
 	};
 }
 
+function createCurrentLevel() {
+  let initial = 0;
+  if(browser) {
+    if(localStorage.level) {
+      // migration
+      initial = parseInt(localStorage.level);
+      delete localStorage.level;
+    }
+    if(localStorage.currentLevel) initial = parseInt(localStorage.currentLevel);
+  }
+  let lStore = writable(initial);
+  lStore.subscribe((value)=> {
+    if(browser) localStorage.currentLevel = JSON.stringify(value);
+  });
+
+  return {
+    ...lStore,
+    increment: () => {
+      lStore.update(prevValue => {
+        progress.add(prevValue)
+        return prevValue + 1;
+      });
+    }
+  }
+}
+
 export const moves = createMoves();
 export const items = createItems();
+export const progress = createProgress();
 export const currentLevel = createCurrentLevel();

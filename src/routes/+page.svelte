@@ -24,6 +24,7 @@
 	 */
 	let handleKnobClick = (item, index, event) => {
 		if (allDone) return;
+    navigator.vibrate([100]);
 		event.preventDefault();
 		event.stopPropagation();
 		moves.increment();
@@ -35,7 +36,6 @@
 		//   return;
 		// }
 
-		navigator.vibrate(100);
 
 		let otherIndezes = [];
 		let column = index % 5;
