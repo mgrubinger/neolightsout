@@ -1,20 +1,23 @@
 <script>
 	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
-	import { progress, currentLevel } from '../../stores.js';
+	import { progress, currentLevel, moves } from '../../stores.js';
 
 	let total = Array.from({ length: 51 });
 
 	function play(level) {
 		currentLevel.set(level);
+    moves.reset();
 		goto('/');
 	}
 
 	function reset() {
-		if (browser) {
-			if (window.confirm('Do you really want to reset your progress?')) {
-				$progress.reset();
+    if (browser) {
+      if (window.confirm('Do you really want to reset your progress?')) {
+        progress.reset();
+        moves.reset();
 				$currentLevel = 0;
+        goto('/');
 			}
 		}
 	}
@@ -29,8 +32,6 @@
 			<span>
 				{#if isDone}
 					✅
-				{:else}
-					🔲
 				{/if}
 				&nbsp;Level {level + 1}
 			</span>

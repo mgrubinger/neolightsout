@@ -1,7 +1,6 @@
 <script>
 	import '@fontsource/ibm-plex-sans-condensed';
 	import Nav from '$components/Nav.svelte';
-  export const prerender = true;
 </script>
 
 <Nav />
@@ -26,11 +25,21 @@
 		color: #333;
 		--main: hsl(335, 68%, 54%);
 		background-color: var(--main);
-		font-family: 'IBM Plex Sans Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-			Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		font-family:
+			'IBM Plex Sans Condensed',
+			-apple-system,
+			BlinkMacSystemFont,
+			'Segoe UI',
+			Roboto,
+			Oxygen,
+			Ubuntu,
+			Cantarell,
+			'Open Sans',
+			'Helvetica Neue',
+			sans-serif;
 		color: #fff;
 		box-sizing: border-box;
-    font-display: swap;
+		font-display: swap;
 	}
 
 	* {
@@ -65,7 +74,9 @@
 	button.primary-button {
 		border: none;
 		background: linear-gradient(145deg, #fffdfe, #f4c7d9);
-		box-shadow: 0.3em 0.3em 1em #be3a70, -0.3em -0.3em 1em #ff4e98;
+		box-shadow:
+			0.3em 0.3em 1em #be3a70,
+			-0.3em -0.3em 1em #ff4e98;
 		padding: 0.9em;
 		text-transform: uppercase;
 		font-size: 1.3rem;
@@ -92,7 +103,7 @@
 		box-sizing: border-box;
 		max-width: 600px;
 		padding: 0 1rem;
-    margin-bottom: 3rem;
+		margin-bottom: 3rem;
 	}
 
 	@media screen and (min-height: 750px) {

@@ -29,6 +29,8 @@
 		moves.increment();
 		items.toggleActive(index);
 
+    if(navigator.vibrate) navigator.vibrate(100);
+
 		//// debug only
 		// if(simple) {
 		//   console.log($items.map((e, index) => e.active ? index : false ).filter(e => e != false));
