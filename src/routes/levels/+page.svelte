@@ -35,7 +35,7 @@
 				{/if}
 				&nbsp;Level {level + 1}
 			</span>
-			<button type="button" class="primary-button tiny" on:click={() => play(level)}
+			<button type="button" class="primary-button tiny" onclick={() => play(level)}
 				>Play {#if isDone}again{/if}</button
 			>
 		</li>
@@ -44,7 +44,7 @@
 
 <hr />
 <p>Reset game progress?</p>
-<button type="button" class="primary-button tiny" on:click={reset}>Reset</button>
+<button type="button" class="primary-button tiny" onclick={reset}>Reset</button>
 <hr />
 
 <style>

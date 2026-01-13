@@ -9,4 +9,4 @@
   To save your current progress in the game (the current level) we store a tiny bit of information in something called Local Storage.<br/>
   By deleting your browsers data you can get rid of it.
 </p>
-<p>If you have any questions, please do not hesitate to contact me: <a href="https://twitter.com/mgrubinger">@mgrubinger</a> on twitter</p>
+<p>If you have any questions, please do not hesitate to contact me: <a href="https://grooovinger.com">grooovinger.com</a></p>

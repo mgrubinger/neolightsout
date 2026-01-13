@@ -1,8 +1,13 @@
 <script>
-	export let showNextLevelDialog = false;
-	export let loadNextLevel;
-
 	import { moves, currentLevel } from './../stores';
+	/**
+	 * @typedef {Object} Props
+	 * @property {boolean} [showNextLevelDialog]
+	 * @property {any} loadNextLevel
+	 */
+
+	/** @type {Props} */
+	let { showNextLevelDialog = false, loadNextLevel } = $props();
 </script>
 
 <div class="bottombar" data-next-level={showNextLevelDialog}>
@@ -26,7 +31,7 @@
 				<br />
 				in {$moves} moves!
 			</h2>
-			<button class="primary-button" on:click={() => loadNextLevel()}>Next Level</button>
+			<button class="primary-button" onclick={() => loadNextLevel()}>Next Level</button>
 		{/if}
 	{:else}
 		<div class="bottombar-element stats">

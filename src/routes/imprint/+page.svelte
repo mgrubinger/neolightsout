@@ -11,7 +11,5 @@
   <br />
   3110 Neidling, Austria
   <br />
-  <a href="mailto:hello@mgrubinger.com">hello@mgrubinger.com</a>
-  <br />
   <a href="https://www.grooovinger.com">grooovinger.com</a>
 </p>

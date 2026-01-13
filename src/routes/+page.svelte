@@ -1,3 +1,4 @@
+<!-- @migration-task Error while migrating Svelte code: Can't migrate code with beforeUpdate. Please migrate by hand. -->
 <script>
 	import { beforeUpdate, tick } from 'svelte';
 
@@ -29,14 +30,13 @@
 		moves.increment();
 		items.toggleActive(index);
 
-    if(navigator.vibrate) navigator.vibrate(100);
+		if (navigator.vibrate) navigator.vibrate(100);
 
 		//// debug only
 		// if(simple) {
 		//   console.log($items.map((e, index) => e.active ? index : false ).filter(e => e != false));
 		//   return;
 		// }
-
 
 		let otherIndezes = [];
 		let column = index % 5;
@@ -119,8 +119,8 @@
 	{#each $items as item, index}
 		<Knob
 			active={item.active}
-			on:click={(e) => handleKnobClick(item, index, e)}
-			on:touchstart={(e) => handleKnobClick(item, index, e)}
+			onclick={(e) => handleKnobClick(item, index, e)}
+			ontouchstart={(e) => handleKnobClick(item, index, e)}
 		>
 			<!-- {index} -->
 		</Knob>
@@ -129,7 +129,8 @@
 		<button
 			class="primary-button tiny restart-button"
 			disabled={$moves == 0 || showNextLevelDialog}
-			on:click={() => restartLevel()}
+			onclick={restartLevel}
+      aria-label="Restart level"
 		>
 			↺
 		</button>

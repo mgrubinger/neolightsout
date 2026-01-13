@@ -1,12 +1,20 @@
 <script>
-	import '@fontsource/ibm-plex-sans-condensed';
+	// import '@fontsource/ibm-plex-sans-condensed';
+	import '@fontsource-variable/lexend';
 	import Nav from '$components/Nav.svelte';
+	/**
+	 * @typedef {Object} Props
+	 * @property {import('svelte').Snippet} [children]
+	 */
+
+	/** @type {Props} */
+	let { children } = $props();
 </script>
 
 <Nav />
 
 <main>
-	<slot />
+	{@render children?.()}
 </main>
 
 <style global>
@@ -26,7 +34,7 @@
 		--main: hsl(335, 68%, 54%);
 		background-color: var(--main);
 		font-family:
-			'IBM Plex Sans Condensed',
+      'Lexend Variable',
 			-apple-system,
 			BlinkMacSystemFont,
 			'Segoe UI',
@@ -40,6 +48,10 @@
 		color: #fff;
 		box-sizing: border-box;
 		font-display: swap;
+
+    @media (prefers-color-scheme: dark) {
+      /* --main: */
+    }
 	}
 
 	* {
