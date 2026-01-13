@@ -6,6 +6,8 @@
 	import Knob from '$components/Knob.svelte';
 	import Bottombar from '$components/Bottombar.svelte';
 
+	const isTouch = typeof window !== "undefined" && window.matchMedia('(pointer: coarse)').matches;
+
 	$: allDone = $items.every((e) => e.active === false);
 	let finishAnimationRunning = false;
 	let showNextLevelDialog = false;
@@ -119,8 +121,8 @@
 	{#each $items as item, index}
 		<Knob
 			active={item.active}
-			onclick={(e) => handleKnobClick(item, index, e)}
-			ontouchstart={(e) => handleKnobClick(item, index, e)}
+			onclick={!isTouch ? (e) => handleKnobClick(item, index, e) : null}
+			ontouchstart={isTouch ? (e) => handleKnobClick(item, index, e) : null}
 		>
 			<!-- {index} -->
 		</Knob>
@@ -130,7 +132,7 @@
 			class="primary-button tiny restart-button"
 			disabled={$moves == 0 || showNextLevelDialog}
 			onclick={restartLevel}
-      aria-label="Restart level"
+			aria-label="Restart level"
 		>
 			↺
 		</button>
