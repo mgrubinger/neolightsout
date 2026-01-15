@@ -14,7 +14,7 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "7.0.0",
-		"@sveltejs/kit": "2.49.4",
+		"@sveltejs/kit": "^2.49.5",
 		"prettier": "^3.1.0",
 		"prettier-plugin-svelte": "^3.2.6",
 		"svelte": "5.46.3",
@@ -24,6 +24,7 @@
 	"dependencies": {
 		"@fontsource-variable/lexend": "^5.2.11",
 		"@fontsource/ibm-plex-sans-condensed": "^5.0.8",
+		"@sveltejs/adapter-static": "^3.0.10",
 		"autoprefixer": "^10.4.12",
 		"postcss": "^8.4.17",
 		"postcss-load-config": "^4.0.1",
