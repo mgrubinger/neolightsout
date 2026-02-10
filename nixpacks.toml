@@ -1,0 +1,17 @@
+buildImage = 'ghcr.io/railwayapp/nixpacks:latest'
+
+[phases.setup]
+nixPkgs = ["nodejs_24", "pnpm_10"]
+# node v24.5.0
+nixpkgsArchive = 'cf93ceb06388f5714302b702cccf2c77f6064442'
+
+[phases.install]
+dependsOn = ["setup"]
+cmd = "pnpm install --frozen-lockfile"
+
+[phases.build]
+dependsOn = ["install"]
+cmd = "pnpm build"
+
+[start]
+cmd = "node build"
