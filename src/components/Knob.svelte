@@ -45,6 +45,14 @@
 		padding-bottom: calc(100% / 1);
 	}
 
+	.knob:hover {
+		background: linear-gradient(
+			145deg,
+			color-mix(in srgb, #fffdfe, transparent 70%),
+			color-mix(in srgb, #f4c7d9, transparent 70%)
+		);
+	}
+
 	.knob[data-active='true'] {
 		transform: translate3d(0, 0, 0) scale(1.05);
 		background: linear-gradient(145deg, #fffdfe, #f4c7d9);

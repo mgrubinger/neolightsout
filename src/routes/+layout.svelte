@@ -34,7 +34,7 @@
 		--main: hsl(335, 68%, 54%);
 		background-color: var(--main);
 		font-family:
-      'Lexend Variable',
+			'Lexend Variable',
 			-apple-system,
 			BlinkMacSystemFont,
 			'Segoe UI',
@@ -49,9 +49,9 @@
 		box-sizing: border-box;
 		font-display: swap;
 
-    @media (prefers-color-scheme: dark) {
-      /* --main: */
-    }
+		@media (prefers-color-scheme: dark) {
+			/* --main: */
+		}
 	}
 
 	* {
@@ -81,6 +81,7 @@
 	button {
 		-webkit-appearance: none;
 		appearance: none;
+		cursor: pointer;
 	}
 
 	button.primary-button {
