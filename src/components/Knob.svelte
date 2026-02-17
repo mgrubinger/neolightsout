@@ -45,7 +45,7 @@
 		padding-bottom: calc(100% / 1);
 	}
 
-	.knob:hover {
+	.knob:hover, .knob:focus-visible {
 		background: linear-gradient(
 			145deg,
 			color-mix(in srgb, #fffdfe, transparent 70%),
