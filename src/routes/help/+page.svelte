@@ -1,4 +1,5 @@
 <script>
+	import Share from '$components/Share.svelte';
 	import { currentLevel } from './../../stores';
 </script>
 
@@ -33,11 +34,7 @@
 </p>
 
 <p>
-	If you like this game, please let others know too! <a
-		href="https://twitter.com/intent/tweet/?text=check+out+this+fun+game!&url=https%3A%2F%2Fneolightsout.grooovinger.com"
-		target="_blank"
-		rel="noopener noreferrer">Share on Twitter</a
-	>
+	If you like this game, please let others know too! <Share />
 </p>
 
 <hr />

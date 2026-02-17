@@ -1,5 +1,6 @@
 <script>
 	import { moves, currentLevel } from './../stores';
+	import Share from './Share.svelte';
 	/**
 	 * @typedef {Object} Props
 	 * @property {boolean} [showNextLevelDialog]
@@ -19,11 +20,7 @@
 				again, hit the reset button in <a href="help">Help</a>
 			</p>
 			<p>
-				Let others know how you liked it too! <a
-					href="https://twitter.com/intent/tweet/?text=check+out+this+fun+game!&url=https%3A%2F%2Fneolightsout.grooovinger.com"
-					target="_blank"
-					rel="noopener noreferrer">Share on Twitter</a
-				>
+				Let others know how you liked it too! <Share />
 			</p>
 		{:else}
 			<h2>
