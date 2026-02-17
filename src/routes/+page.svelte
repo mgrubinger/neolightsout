@@ -1,24 +1,20 @@
-<!-- @migration-task Error while migrating Svelte code: Can't migrate code with beforeUpdate. Please migrate by hand. -->
 <script>
-	import { beforeUpdate, tick } from 'svelte';
-
 	import { moves, items, currentLevel } from './../stores.js';
 	import Knob from '$components/Knob.svelte';
 	import Bottombar from '$components/Bottombar.svelte';
 
-	const isTouch = typeof window !== "undefined" && window.matchMedia('(pointer: coarse)').matches;
+	const isTouch = typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches;
 
-	$: allDone = $items.every((e) => e.active === false);
-	let finishAnimationRunning = false;
-	let showNextLevelDialog = false;
+	let allDone = $derived($items.every((e) => e.active === false));
+	let finishAnimationRunning = $state(false);
+	let showNextLevelDialog = $state(false);
 
 	if ($moves == 0) items.loadLevel($currentLevel);
 
 	/**
 	 * after update (after tick()) -> trigger finish animation
 	 */
-	beforeUpdate(async () => {
-		await tick();
+	$effect.pre(() => {
 		if (allDone && finishAnimationRunning === false) finishAnimation();
 	});
 
@@ -123,9 +119,7 @@
 			active={item.active}
 			onclick={!isTouch ? (e) => handleKnobClick(item, index, e) : null}
 			ontouchstart={isTouch ? (e) => handleKnobClick(item, index, e) : null}
-		>
-			<!-- {index} -->
-		</Knob>
+		></Knob>
 	{/each}
 	{#if !showNextLevelDialog}
 		<button
