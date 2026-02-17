@@ -20,7 +20,8 @@
 				again, hit the reset button in <a href="help">Help</a>
 			</p>
 			<p>
-				Let others know how you liked it too! <Share />
+				Let others know how you liked it too! <br />
+				<Share />
 			</p>
 		{:else}
 			<h2>

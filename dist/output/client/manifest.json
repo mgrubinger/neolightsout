@@ -1,0 +1,20 @@
+{
+  "background_color": "#f2cfdd",
+  "theme_color": "#d93a7c",
+  "name": "neo:lights:out",
+  "short_name": "neo:lights:out",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "lightsout-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "lightsout-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

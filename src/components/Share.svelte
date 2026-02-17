@@ -7,4 +7,4 @@
 	}
 </script>
 
-<button type="button" onclick={share}>Share</button>
+<button type="button" class="primary-button tiny" onclick={share}>Share</button>

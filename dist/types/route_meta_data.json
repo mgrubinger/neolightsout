@@ -1,0 +1,18 @@
+{
+	"/": [
+		"src/routes/+layout.js",
+		"src/routes/+layout.js"
+	],
+	"/help": [
+		"src/routes/+layout.js"
+	],
+	"/imprint": [
+		"src/routes/+layout.js"
+	],
+	"/levels": [
+		"src/routes/+layout.js"
+	],
+	"/privacy-statement": [
+		"src/routes/+layout.js"
+	]
+}
