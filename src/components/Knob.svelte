@@ -16,7 +16,7 @@
 	data-active={active}
 	aria-label="{active ? 'light' : 'dark'} button"
 	{onclick}
-	onmousedown={ontouchstart}>{@render children?.()}</button
+	{ontouchstart}>{@render children?.()}</button
 >
 
 <style>
